@@ -6,8 +6,6 @@ export async function generateTrip(req, res) {
 
     const { prompt } = req.body;
 
-    console.log("Prompt received:", prompt);
-
     const trip = await generateTripPlan(prompt);
 
     res.json({ trip });
