@@ -15,7 +15,7 @@ app.use("/api/trip", tripRoutes);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const frontendPath = path.join(__dirname, "../../frontend/dist");
+const frontendPath = path.join(__dirname, "../frontend/dist");
 
 app.use(express.static(frontendPath));
 
