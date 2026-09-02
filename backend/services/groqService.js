@@ -3,7 +3,7 @@ import { tripPrompt } from "../prompts/tripPrompt.js";
 
 export async function generateTripPlan(userPrompt) {
   const completion = await groq.chat.completions.create({
-    model: "llama-3.1-8b-instant",
+    model: "openai/gpt-oss-20b",
     messages: [
       {
         role: "system",
@@ -14,7 +14,7 @@ export async function generateTripPlan(userPrompt) {
         content: userPrompt,
       },
     ],
-    max_tokens: 8192,
+    max_tokens: 6000,
   });
 
   return completion.choices[0].message.content;
