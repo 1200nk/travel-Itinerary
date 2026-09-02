@@ -1,5 +1,4 @@
 export async function generateTrip(prompt) {
-
   const res = await fetch("/api/trip/plan", {
     method: "POST",
     headers: {
@@ -8,7 +7,12 @@ export async function generateTrip(prompt) {
     body: JSON.stringify({ prompt })
   });
 
-  const data = await res.json();
+  const text = await res.text();
+  const data = text ? JSON.parse(text) : {};
+
+  if (!res.ok) {
+    throw new Error(data.error || "Failed to generate trip");
+  }
 
   return data;
 }
