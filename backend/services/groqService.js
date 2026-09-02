@@ -14,6 +14,7 @@ export async function generateTripPlan(userPrompt) {
         content: userPrompt,
       },
     ],
+    max_tokens: 8192,
   });
 
   return completion.choices[0].message.content;
